@@ -4,7 +4,7 @@ import { makeStyles } from '@mui/styles'
 import { FcGoogle } from 'react-icons/fc'
 import GitHubIcon from '@mui/icons-material/GitHub'
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles({
 	root: {
 		height: '100vh',
 	},
@@ -39,7 +39,7 @@ const useStyles = makeStyles(theme => ({
 		textDecoration: 'none',
 		color: 'inherit',
 	},
-}))
+})
 
 export default function Home() {
 	const classes = useStyles()
