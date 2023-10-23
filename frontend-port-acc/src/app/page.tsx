@@ -1,21 +1,13 @@
 'use client'
-import {
-	Box,
-	Button,
-	Grid,
-	Input,
-	Link,
-	Stack,
-	TextField,
-	Typography,
-} from '@mui/material'
+import { Box, Button, Grid, Link, Typography } from '@mui/material'
 
 import { makeStyles } from '@mui/styles'
 
 import { FcGoogle } from 'react-icons/fc'
 import Image from 'next/image'
+import GitHubIcon from '@mui/icons-material/GitHub'
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
 	root: {
 		height: '100vh',
 	},
@@ -34,13 +26,23 @@ const useStyles = makeStyles({
 		alignItems: 'center',
 		padding: '2rem',
 	},
-	input: {
-		width: '80%',
-		padding: '0.5rem',
-		border: '1px solid black',
-		borderRadius: '4px',
+	gitHubLink: {
+		position: 'fixed',
+		bottom: '40px',
+		right: '330px',
 	},
-})
+	icon: {
+		display: 'flex',
+		alignItems: 'center',
+		marginRight: '10px',
+	},
+	text: {
+		display: 'flex',
+		alignItems: 'center',
+		textDecoration: 'none',
+		color: 'inherit',
+	},
+}))
 
 export default function Home() {
 	const classes = useStyles()
@@ -109,7 +111,67 @@ export default function Home() {
 						Created with Google
 					</Button>
 				</Link>
+				<div className={classes.gitHubLink}>
+					<Link
+						href='https://github.com/papaya-metaverse/PortAcc'
+						target='_blank'
+						rel='noopener'
+						underline='none'
+						color='inherit'
+						className={classes.text}
+					>
+						<GitHubIcon className={classes.icon} />
+
+						<Typography variant='body1' component='span'>
+							Project on Github
+						</Typography>
+					</Link>
+				</div>
 			</Grid>
 		</Grid>
 	)
 }
+
+// root: {
+//     display: 'flex',
+//     flexDirection: 'column',
+//     alignItems: 'flex-start',
+//     justifyContent: 'flex-end',
+//     height: '100vh',
+//     gap: theme.spacing(1),
+//     backgroundColor: theme.palette.background.default,
+//     padding: theme.spacing(2),
+//   },
+//   icon: {
+//     display: 'flex',
+//     alignItems: 'center',
+//     marginRight: theme.spacing(1),
+//   },
+//   text: {
+//     display: 'flex',
+//     alignItems: 'center',
+//     textDecoration: 'none',
+//     color: 'inherit',
+//   },
+// }));
+
+// const App = () => {
+//   const classes = useStyles();
+
+//   return (
+//     <Box className={classes.root}>
+//       <Link
+//         href="https://github.com/your-username/your-project"
+//         target="_blank"
+//         rel="noopener"
+//         underline="none"
+//         color="inherit"
+//         className={classes.text}
+//       >
+//         <GitHubIcon className={classes.icon} />
+//         <Typography variant="body1" component="span">
+//           Project on Github
+//         </Typography>
+//       </Link>
+//     </Box>
+//   );
