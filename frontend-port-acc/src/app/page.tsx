@@ -1,10 +1,7 @@
 'use client'
 import { Box, Button, Grid, Link, Typography } from '@mui/material'
-
 import { makeStyles } from '@mui/styles'
-
 import { FcGoogle } from 'react-icons/fc'
-import Image from 'next/image'
 import GitHubIcon from '@mui/icons-material/GitHub'
 
 const useStyles = makeStyles(theme => ({
@@ -50,7 +47,6 @@ export default function Home() {
 	return (
 		<Grid container className={classes.root}>
 			<Grid item xs={8} className={classes.leftSection}>
-				<Image src={'assets/logo.svg'} width={130} height={25} alt='papaya' />
 				<Box
 					sx={{
 						color: 'white',
@@ -131,47 +127,3 @@ export default function Home() {
 		</Grid>
 	)
 }
-
-// root: {
-//     display: 'flex',
-//     flexDirection: 'column',
-//     alignItems: 'flex-start',
-//     justifyContent: 'flex-end',
-//     height: '100vh',
-//     gap: theme.spacing(1),
-//     backgroundColor: theme.palette.background.default,
-//     padding: theme.spacing(2),
-//   },
-//   icon: {
-//     display: 'flex',
-//     alignItems: 'center',
-//     marginRight: theme.spacing(1),
-//   },
-//   text: {
-//     display: 'flex',
-//     alignItems: 'center',
-//     textDecoration: 'none',
-//     color: 'inherit',
-//   },
-// }));
-
-// const App = () => {
-//   const classes = useStyles();
-
-//   return (
-//     <Box className={classes.root}>
-//       <Link
-//         href="https://github.com/your-username/your-project"
-//         target="_blank"
-//         rel="noopener"
-//         underline="none"
-//         color="inherit"
-//         className={classes.text}
-//       >
-//         <GitHubIcon className={classes.icon} />
-//         <Typography variant="body1" component="span">
-//           Project on Github
-//         </Typography>
-//       </Link>
-//     </Box>
-//   );
