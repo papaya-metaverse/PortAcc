@@ -19,14 +19,10 @@ const useStyles = makeStyles({
 	rightSection: {
 		backgroundColor: 'white',
 		display: 'flex',
-		justifyContent: 'center',
+		flexDirection: 'column',
+		justifyContent: 'space-between',
 		alignItems: 'center',
 		padding: '2rem',
-	},
-	gitHubLink: {
-		position: 'fixed',
-		bottom: '40px',
-		right: '330px',
 	},
 	icon: {
 		display: 'flex',
@@ -36,8 +32,6 @@ const useStyles = makeStyles({
 	text: {
 		display: 'flex',
 		alignItems: 'center',
-		textDecoration: 'none',
-		color: 'inherit',
 	},
 })
 
@@ -98,16 +92,13 @@ export default function Home() {
 							height: '50px',
 							width: '350px',
 							borderRadius: '8px',
-							textAlign: 'center',
-							display: 'flex',
-							justifyContent: 'center',
-							alignItems: 'center',
+							marginTop: '600px',
 						}}
 					>
 						Created with Google
 					</Button>
 				</Link>
-				<div className={classes.gitHubLink}>
+				<Box>
 					<Link
 						href='https://github.com/papaya-metaverse/PortAcc'
 						target='_blank'
@@ -122,7 +113,7 @@ export default function Home() {
 							Project on Github
 						</Typography>
 					</Link>
-				</div>
+				</Box>
 			</Grid>
 		</Grid>
 	)
