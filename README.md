@@ -1,4 +1,4 @@
-<img width="1380" alt="PortAcc" src="https://github.com/papaya-metaverse/PortAcc/assets/22211749/749e8ada-a8ff-4b91-94e2-71305e654033">
+<img width="1380" alt="PortAcc" src="https://github.com/papaya-metaverse/PortAcc/assets/22211749/4321ebf8-d97f-4d2f-8604-c34fb7a86645">
 
 ### Project description
 PortAcc simplifies user onboarding and interaction in the cryptocurrency world. We achieve this by using the ERC-4337 standard, which reduces the need for additional software or extensive knowledge of cryptocurrency. Our goal is to make blockchain technology accessible and inclusive for all users.
