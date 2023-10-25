@@ -31,7 +31,7 @@ export class UserService {
   }
 
   async generateWallet() {
-    const provider = await ethers.getDefaultProvider( this.configService.get<string>(""));
+    const provider = await ethers.getDefaultProvider( this.configService.get<string>("PROVIDER"));
     const wallet = await ethers.Wallet.createRandom(provider)
     return {
         pubkey: wallet.address,

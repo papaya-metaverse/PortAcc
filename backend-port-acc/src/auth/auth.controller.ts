@@ -18,7 +18,7 @@ import {
   import {ExtRegistrationDto} from "../dto/ext-registration.dto";
   import {Response} from "express";
   import {ConfigService} from "@nestjs/config";
-  import { ApiTags } from '@nestjs/swagger';
+  import {ApiOkResponse, ApiTags} from '@nestjs/swagger';
 
   @ApiTags('auth')
   @Controller('auth')
@@ -29,7 +29,12 @@ import {
         private configService: ConfigService
     ) 
     {}
-  
+
+    @UseGuards(AuthGuard('google'))
+    @Get('google')
+    @ApiOkResponse()
+    async googleAuth(@Req() req) {}
+      
     @Get('callback/google')
     @UseGuards(AuthGuard('google'))
     async googleAuthRedirect(@Req() req, @Res({ passthrough: true }) response: Response) {
