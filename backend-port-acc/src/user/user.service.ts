@@ -71,10 +71,10 @@ export class UserService {
     return this.userRepository.save(user);
   }
 
-  getUserByToken(token: string) {
+  async getUserByToken(token: string) {
     const payload = this.jwtService.decode(token);
     const id = payload[CLAIM_TYPES.sid];
-    return this.findById(id);
+    return UserResponseDto.fromEntity(await this.findById(id));
   }
 
   async updateRefreshToken(userId, refreshToken: string) {
