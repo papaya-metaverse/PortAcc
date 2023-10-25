@@ -44,32 +44,8 @@ const useStyles = makeStyles({
 
 export default function Home() {
 	const classes = useStyles()
-	// const dispatch = useAppDispatch()
-	// const router = useRouter()
-
-	// useEffect(() => {
-	// 	const Auth = async () => {
-	// 		if (getCookie(TOKEN_KEY2)) {
-	// 			console.log('here')
-
-	// 			dispatch(
-	// 				authSlice.actions.updateAllToken({
-	// 					accessToken: getCookie(TOKEN_KEY2),
-	// 					refreshToken: getCookie(REFRESH_KEY2),
-	// 				})
-	// 			)
-	// 			await dispatch(fetchGetUserCurrent()).then((res: any) => {
-	// 				console.log('res', res.data)
-
-	// 				dispatch(authSlice.actions.updateCurrentUser(res.data))
-	// 			})
-
-	// 			router.push('/profile')
-	// 		}
-	// 	}
-
-	// 	Auth()
-	// }, [dispatch, router])
+	const PUBLIC_URL = process.env.NEXT_PUBLIC_PUBLIC_URL
+	console.log({ PUBLIC_URL })
 
 	return (
 		<Grid container className={classes.root}>
@@ -114,7 +90,7 @@ export default function Home() {
 			</Grid>
 
 			<Grid item xs={4} className={classes.rightSection}>
-				<Link href='https://portacc.papaya.ws/api/auth/google' target='_blank'>
+				<Link href='http://localhost:3001/auth/google' target='_blank'>
 					<Button
 						variant='contained'
 						startIcon={<FcGoogle />}

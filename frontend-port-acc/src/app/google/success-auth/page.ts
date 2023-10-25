@@ -13,7 +13,11 @@ const GoogleSuccessAuthPage = () => {
 	console.log('sdfsafsdfsdsfds')
 	useEffect(() => {
 		const Auth = async () => {
+			console.log('here1')
+
 			if (getCookie(TOKEN_KEY2)) {
+				console.log('here2')
+
 				dispatch(
 					authSlice.actions.updateAllToken({
 						accessToken: getCookie(TOKEN_KEY2),
