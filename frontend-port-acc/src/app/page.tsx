@@ -3,6 +3,13 @@ import { Box, Button, Grid, Link, Typography } from '@mui/material'
 import { makeStyles } from '@mui/styles'
 import { FcGoogle } from 'react-icons/fc'
 import GitHubIcon from '@mui/icons-material/GitHub'
+import { useEffect, useState } from 'react'
+import { getCookie } from '@/utils/cookies'
+import { authSlice } from '@/redux/slices/auth'
+import { REFRESH_KEY2, TOKEN_KEY2 } from '@/constants/auth'
+import { fetchGetUserCurrent } from '@/api/user.api'
+import { useRouter } from 'next/navigation'
+import { useAppDispatch } from '@/hooks/useRedux'
 
 const useStyles = makeStyles({
 	root: {
@@ -37,6 +44,8 @@ const useStyles = makeStyles({
 
 export default function Home() {
 	const classes = useStyles()
+	const PUBLIC_URL = process.env.NEXT_PUBLIC_PUBLIC_URL
+	console.log({ PUBLIC_URL })
 
 	return (
 		<Grid container className={classes.root}>
@@ -81,7 +90,7 @@ export default function Home() {
 			</Grid>
 
 			<Grid item xs={4} className={classes.rightSection}>
-				<Link href='https://dev.papaya.ws/api/auth/google' target='_blank'>
+				<Link href='http://localhost:3001/auth/google' target='_blank'>
 					<Button
 						variant='contained'
 						startIcon={<FcGoogle />}

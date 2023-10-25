@@ -2,6 +2,9 @@ import type { Metadata } from 'next'
 import './global.css'
 import { Inter } from 'next/font/google'
 import { NavBar } from './NavBar'
+import { store } from '@/redux'
+import { Provider as ReduxProvider } from 'react-redux'
+import { AppProvider } from './AppProvider'
 
 export const metadata: Metadata = {
 	title: 'PortAcc',
@@ -21,8 +24,10 @@ export default function RootLayout({
 	return (
 		<html lang='en' className={inter.className}>
 			<body>
-				<NavBar />
-				{children}
+				<AppProvider>
+					<NavBar />
+					{children}
+				</AppProvider>
 			</body>
 		</html>
 	)
