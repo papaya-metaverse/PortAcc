@@ -3,6 +3,13 @@ import { Box, Button, Grid, Link, Typography } from '@mui/material'
 import { makeStyles } from '@mui/styles'
 import { FcGoogle } from 'react-icons/fc'
 import GitHubIcon from '@mui/icons-material/GitHub'
+import { useEffect, useState } from 'react'
+import { getCookie } from '@/utils/cookies'
+import { authSlice } from '@/redux/slices/auth'
+import { REFRESH_KEY2, TOKEN_KEY2 } from '@/constants/auth'
+import { fetchGetUserCurrent } from '@/api/user.api'
+import { useRouter } from 'next/navigation'
+import { useAppDispatch } from '@/hooks/useRedux'
 
 const useStyles = makeStyles({
 	root: {
@@ -37,6 +44,32 @@ const useStyles = makeStyles({
 
 export default function Home() {
 	const classes = useStyles()
+	// const dispatch = useAppDispatch()
+	// const router = useRouter()
+
+	// useEffect(() => {
+	// 	const Auth = async () => {
+	// 		if (getCookie(TOKEN_KEY2)) {
+	// 			console.log('here')
+
+	// 			dispatch(
+	// 				authSlice.actions.updateAllToken({
+	// 					accessToken: getCookie(TOKEN_KEY2),
+	// 					refreshToken: getCookie(REFRESH_KEY2),
+	// 				})
+	// 			)
+	// 			await dispatch(fetchGetUserCurrent()).then((res: any) => {
+	// 				console.log('res', res.data)
+
+	// 				dispatch(authSlice.actions.updateCurrentUser(res.data))
+	// 			})
+
+	// 			router.push('/profile')
+	// 		}
+	// 	}
+
+	// 	Auth()
+	// }, [dispatch, router])
 
 	return (
 		<Grid container className={classes.root}>
@@ -81,7 +114,7 @@ export default function Home() {
 			</Grid>
 
 			<Grid item xs={4} className={classes.rightSection}>
-				<Link href='https://dev.papaya.ws/api/auth/google' target='_blank'>
+				<Link href='https://portacc.papaya.ws/api/auth/google' target='_blank'>
 					<Button
 						variant='contained'
 						startIcon={<FcGoogle />}
