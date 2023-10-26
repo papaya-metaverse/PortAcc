@@ -12,3 +12,39 @@ Additionally, our solution eliminates the need for users to understand the techn
 In summary, PortAcc is a secure and user-friendly gateway to the cryptocurrency world that promotes inclusivity and accessibility. By making the cryptosphere more approachable, we not only simplify technology, but also expand the community, foster inclusivity, and drive innovation in Web3. Our project is a cutting-edge solution in this space, combining technical sophistication, user benefits, and innovation.
 ### How it`s made
 This project uses SafeGlobal multisig. We using multisig to send and execute transactions, by design it needed three (two at first time) wallets. When a user uses our solution for the first time, we create a wallet for him and encrypt it, at this stage it doesn't matter how, as the wallet can be recreated later. When the user feels experienced enough, we will give him this generated wallet on request. So that the user can remove us from the multisig management at any time.
+
+### How to start it?
+
+#### docker build -t portacc-be .
+
+Then you need to set up docker compose:
+
+version: "3.9"
+
+services:
+  user-api:
+    image: portac-be
+    ports:
+      - "8080:3000"
+    environment:
+      - NODE_ENV=production
+      - DB_HOST=10.10.10.111
+      - DB_PORT=5432
+      - DB_USER=papaya_portacc_dev_admin
+      - DB_PASSWORD=papaya777dev
+      - DB_NAME=papaya_portacc_dev_db
+      - JWT_ACCESS_SECRET=***
+      - JWT_REFRESH_SECRET=***
+      - GOOGLE_CLIENT_ID=***
+      - GOOGLE_SECRET=***
+      - GOOGLE_CALLBACK=https://portacc.papaya.ws/api/auth/callback/google
+      - EXTERNAL_AUTH_SUCCESS=https://portacc.papaya.ws/google/success-auth
+      - PROVIDER=https://polygon-mumbai.g.alchemy.com/v2/ShFoDreXo07PfQs9vaaNRCln0FMDKRDD
+
+#### And finally start it with:
+
+docker compose -f file_name up -d
+
+
+
+
